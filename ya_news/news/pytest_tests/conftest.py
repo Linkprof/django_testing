@@ -74,4 +74,4 @@ def make_bulk_of_comments(news, author):
             text=f'Comment text {index}'
         )
         comment.created = now + timedelta(days=index)
-        comment.save(update_fields=['text'])
+        comment.save(update_fields=['created'])
