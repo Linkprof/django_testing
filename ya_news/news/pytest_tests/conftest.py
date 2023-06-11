@@ -1,8 +1,9 @@
+from datetime import datetime, timedelta
+
 import pytest
 from django.conf import settings
 from django.utils import timezone
 from news.models import News, Comment
-from datetime import datetime, timedelta
 
 
 @pytest.fixture
@@ -73,4 +74,4 @@ def make_bulk_of_comments(news, author):
             text=f'Comment text {index}'
         )
         comment.created = now + timedelta(days=index)
-        comment.save()
+        comment.save(update_fields=['text'])

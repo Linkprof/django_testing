@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
+
 from notes.models import Note
 
 User = get_user_model()
@@ -20,6 +21,12 @@ class TestContent(TestCase):
         )
 
     def test_notes_list_for_different_users(self):
+        """Тест на два задания:
+        - отдельная заметка передаётся на страницу со
+        списком заметок в списке object_list в словаре context;
+        - в список заметок одного пользователя
+        не попадают заметки другого пользователя;
+        """
         users_notes = (
             (self.author, True),
             (self.reader, False),

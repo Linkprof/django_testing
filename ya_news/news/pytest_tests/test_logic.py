@@ -1,11 +1,13 @@
 from http import HTTPStatus
 from random import choice
-from django.urls import reverse
+
 import pytest
 from pytest_django.asserts import assertRedirects, assertFormError
+
+from django.urls import reverse
+
 from news.forms import BAD_WORDS, WARNING
 from news.models import Comment
-
 
 pytestmark = pytest.mark.django_db
 
